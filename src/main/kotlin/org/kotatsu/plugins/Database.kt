@@ -20,7 +20,7 @@ fun Application.configureDatabase() {
     }
 
     // Force SSL requirements for Aiven
-    val sslParams = "?sslMode=REQUIRED&useSSL=true&allowPublicKeyRetrieval=true"
+    val sslParams = "?sslMode=REQUIRED&enabledTLSProtocols=TLSv1.2,TLSv1.3"
 
     val config = HikariConfig().apply {
         jdbcUrl = "jdbc:$dialect://$host:$port/$name$sslParams"
