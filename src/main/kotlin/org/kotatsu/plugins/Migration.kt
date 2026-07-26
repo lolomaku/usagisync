@@ -12,7 +12,7 @@ fun Application.runMigrations() {
     val password = environment.config.property("database.password").getString()
 
     // Add SSL parameters explicitly here for Flyway
-    val url = "jdbc:$dialect://$host:$port/$name?sslMode=REQUIRED&useSSL=true&allowPublicKeyRetrieval=true"
+    val url = "jdbc:$dialect://$host:$port/$name?sslMode=REQUIRED&enabledTLSProtocols=TLSv1.2,TLSv1.3"
 
     val flyway = Flyway.configure()
         .dataSource(url, user, password)
