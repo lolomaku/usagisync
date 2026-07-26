@@ -20,7 +20,7 @@ fun Application.configureDatabase() {
     }
 
     val config = HikariConfig().apply {
-        jdbcUrl = "jdbc:$dialect://$host:$port/$name"
+        jdbcUrl = "jdbc:$dialect://$host:$port/$name?sslMode=REQUIRED"
         username = environment.config.property("database.user").getString()
         password = environment.config.property("database.password").getString()
         driverClassName = jdbcDriver
